@@ -8,11 +8,27 @@
 
 require 'faker'
 
-# Creation de 5 docteurs, 5 patients et d'appointments aléatoires
-5.times do
-  doctor = Doctor.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, postal_code: Faker::Address.zip)
-  patient = Patient.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
-  rand(1..3).times do
-    appointment = Appointment.create(date: Faker::Date.forward(3), doctor_id: rand(Doctor.first.id..Doctor.last.id), patient_id: rand(Patient.first.id..Patient.last.id))
+# Creation de deux villes
+2.times do
+  city = City.create(name:Faker::GameOfThrones.city)
+  
+  # Creation de 10 specialites
+  5.times do
+    specialty = Specialty.create(name:Faker::Job.field)
+  end
+
+  # Creation de 10 docteurs
+  5.times do
+    doctor = Doctor.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, postal_code: Faker::Address.zip, city_id: city.id, specialty_id: Specialty.all.sample.id)
+
+    # Creation de 20 patients
+    2.times do
+      patient = Patient.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, city_id: city.id)
+
+      # Creation de rendez-vous aléatoires sur une semaine
+      rand(1..3).times do
+        appointment = Appointment.create(date: Faker::Date.forward(7), doctor_id: rand(Doctor.first.id..Doctor.last.id), patient_id: rand(Patient.first.id..Patient.last.id), city_id: city.id)
+      end
+    end
   end
 end
