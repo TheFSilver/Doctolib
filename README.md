@@ -1,24 +1,37 @@
-# README
+# Ze Super Concurrent de Doctolib, nommé... Doctolib !
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Salut mon p'tit moussaillon !
+Bienvenue sur le repository de la superbe application Rails de François Dasylva et Jeremy Rak !
 
-* Ruby version
+Ce projet crée une base de donnée pour une application de blogging.
 
-* System dependencies
+Il peut y avoir plusieurs user dans l'application, ils ont tous un nom. Chaque utiliseur peut créer plusieurs articles mais chaque article est créé par un seul user. Un article a plusieurs categories et une catégories a plusieurs tags.
 
-* Configuration
+## Instructions ##
+Pour tester notre super appli, réalisez les processus suivants :
+- git clone https://github.com/TheFSilver/Doctolib.git
 
-* Database creation
+pour copier notre répo sur votre machine
+- cd Doctolib/
 
-* Database initialization
+pour se déplacer dans le bon dossier
+- bundle install
 
-* How to run the test suite
+pour mettre à jour votre liste de gems
+- rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+pour que les migrations soient bien effectuées
+- rails db:seed
 
-* Deployment instructions
+pour pouvoir initialiser et remplir votre database !
 
-* ...
+Cher correcteur/correctrice, si vous avez bien executez toutes ces commandes, la base de données complète se trouve au chemin d'accès suivant :
+
+```Doctolib/db/development.sqlite3 ```
+
+Ouvrez-la avec <a href="http://sqlitebrowser.org/">DB Browser</a> ou <a href="http://sqlitestudio.pl/?act=download">SQLStudio</a>
+
+### Concepteurs ###
+
+Conçu en Ruby on Rails, ligne par ligne, par Jeremy R. ( <a href="https://github.com/skageraz">Skageraz</a> ) et François D. ( <a href="https://github.com/TheFSilver">TheFSilver</a> ).
