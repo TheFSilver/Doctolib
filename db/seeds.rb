@@ -10,7 +10,7 @@ require 'faker'
 
 # Creation de 5 docteurs, 5 patients et d'appointments aléatoires
 5.times do
-  doctor = Doctor.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, specialty: Faker::Job.field, postal_code: Faker::Address.zip)
+  doctor = Doctor.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, postal_code: Faker::Address.zip)
   patient = Patient.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
   rand(1..3).times do
     appointment = Appointment.create(date: Faker::Date.forward(3), doctor_id: rand(Doctor.first.id..Doctor.last.id), patient_id: rand(Patient.first.id..Patient.last.id))
