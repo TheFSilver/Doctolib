@@ -6,7 +6,7 @@ Bienvenue sur le repository de la superbe application Rails de François Dasylva
 
 Ce projet crée une base de donnée pour un site similaire à Doctolib.
 
-Pour ce premier exercice, nous allons t'aider et te donner les models à créer :
+Pour le premier exercice, les models ont été créés comme suit :
 
     un model doctor, qui a comme attributs :
         un first_name, qui est un string
@@ -20,6 +20,12 @@ Pour ce premier exercice, nous allons t'aider et te donner les models à créer 
         un date, qui est un datetime
 
 Un appointment ne peut avoir qu'un seul doctor, mais un doctor peut avoir plusieurs appointment. Un appointment ne peut avoir qu'un seul patient, mais un patient peut avoir plusieurs appointment. Enfin, un doctor peut avoir plusieurs patient, au travers des appointments, et vice versa.
+
+Puis pour le deuxième exercice, deux tables ont été créées ainsi :
+
+    city : un docteur, un patient, et un rendez-vous appartiennent tous à une city. Une city peut avoir plusieurs docteurs, patients, et rendez-vous
+    Nous avons retiré la ligne specialty de la table doctor et l'avons remplacé par un model à part entière : un model specialty. Un docteur aurait plusieurs specialty, et une specialty pourrait concerner plusieurs doctor
+
 
 ## Instructions ##
 Pour tester notre super appli, réalisez les processus suivants :
