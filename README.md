@@ -6,7 +6,7 @@ Bienvenue sur le repository de la superbe application Rails de François Dasylva
 
 Ce projet crée une base de donnée pour un site similaire à Doctolib.
 
-Pour le premier exercice, les models ont été créés comme suit :
+Pour le premier exercice, les models ont été créé comme suit :
 
     un model doctor, qui a comme attributs :
         un first_name, qui est un string
