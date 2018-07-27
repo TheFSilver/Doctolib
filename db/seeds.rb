@@ -24,11 +24,29 @@ require 'faker'
     # Creation de 20 patients
     2.times do
       patient = Patient.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, city_id: city.id)
+    end
+  end
+end
 
-      # Creation de rendez-vous aléatoires sur une semaine
-      rand(1..3).times do
-        appointment = Appointment.create(date: Faker::Date.forward(7), doctor_id: rand(Doctor.first.id..Doctor.last.id), patient_id: rand(Patient.first.id..Patient.last.id), city_id: city.id)
-      end
+# Boucle creant des rendez-vous aleatoirement
+City.all.each do |onecity|
+  rand(20..30).times do
+    randomdoctor = Doctor.all.sample
+    randompatient = Patient.all.sample
+
+    # Boucle pour trouver un docteur provenant de la bonne ville
+    while randomdoctor.city_id != onecity.id
+      randomdoctor = Doctor.all.sample
+    end
+
+    # Boucle pour trouver un patient provenant de la bonne ville
+    while randompatient.city_id != onecity.id
+      randompatient = Patient.all.sample
+    end
+
+    # Creation de rendez-vous aléatoires sur une semaine
+    rand(0..2).times do
+      appointment = Appointment.create(date: Faker::Date.forward(7), doctor_id: randomdoctor.id, patient_id: randompatient.id, city_id: onecity.id)
     end
   end
 end
